@@ -6,7 +6,7 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-.logo2{
+.parallax{
     background-image: url(../img/logo-tijao.png);
     background-color: #ffc100;
     flex-direction: column;
@@ -22,7 +22,7 @@
     height: 50vw;
     background-attachment: fixed;
 }
-.logo2:after{
+.parallax:after{
     content: "";
     height: 100%;
     width: 100%;
@@ -74,9 +74,51 @@
 .porcao{
     display: flex;
     height: 400px;
-    background-color: #ffc100;
+    background-color: #fff;
     overflow: hidden;
+}
+.texto-porcao{
+    display: flex;
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+.img-porcao img{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 .texto-inst, .img-inst, .img-drinks, .texto-drinks, .texto-porcao, .img-porcao{
     flex: 1;
+}
+.parallax-2{
+    background-image: url(../img/drinks-parallax.jpg);
+    background-size: cover;
+}
+.parallax-3{
+    background-image: url(../img/porcao-parallax.jpg);
+    background-size: cover;
+}
+.footer{
+    display: flex;
+    height: 600px;
+    overflow: hidden;
+    background-color: #ffc100;
+}
+.img-footer{
+    width: 100%;
+    background-image: url(../img/logo-tijao.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.texto-footer{
+    display: flex;
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
 }
