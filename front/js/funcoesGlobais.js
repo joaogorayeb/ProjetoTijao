@@ -15,7 +15,7 @@ function btnHidden(){
     }
 }
 function alerta(){
-    if(inputDescricao.value.trim() === '' || inputPreco.value.trim() === '' || (!inputTipoLan.checked) && (!inputTipoMais.checked)){
+    if(inputDescricao.value.trim() === '' || inputPreco.value.trim() === '' || (!inputTipoCerveja.checked) && (!inputTipoDrinks.checked) && (!inputTipoPorcoes.checked) && (!inputTipoSemalcool.checked)){
         alert("Todos os campos devem ser preenchidos!");
         return true;
     }

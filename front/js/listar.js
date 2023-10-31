@@ -1,3 +1,18 @@
+function pegaHTML(){
+    fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Accepted": "application/json"
+        }
+    })
+        .then(resposta => resposta.json())
+        .then(produtos => preencherTabela(produtos))
+        .catch(erro => console.log("ocorreu um erro" + erro))
+}
+
+
+
 function preencherTabela(produtos) {
     produtos.forEach(produto => {
         inserirProduto(produto);
@@ -32,9 +47,13 @@ function inserirProduto(produto) {
 
     colTipo.classList.add("col-tipo");
     if (produto.tipo === 1) {
-        colTipo.innerText = 'Mais Vendidos';
+        colTipo.innerText = 'Cerveja';
     } else if (produto.tipo === 2) {
-        colTipo.innerText = 'Lançamentos';
+        colTipo.innerText = 'Drinks';
+    } else if (produto.tipo === 3) {
+        colTipo.innerText = 'Porções';
+    } else if (produto.tipo === 4) {
+        colTipo.innerText = 'Sem alcool';
     }
 
     var btn = document.createElement("button");
@@ -52,4 +71,5 @@ function inserirProduto(produto) {
         document.querySelector("tbody").appendChild(novaLinha);
         selecionar(btn);
     }
+    pegaHTML();
     

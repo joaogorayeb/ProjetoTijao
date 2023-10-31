@@ -6,11 +6,15 @@ function selecionar(btn){
         inputDescricao.value = linha.querySelector(".col-descricao").innerText;
         inputPreco.value = linha.querySelector(".col-preco").innerText;
         
-        if(linha.querySelector(".col-tipo").innerText == 'Mais Vendidos'){
-            document.getElementById("mais").checked = true;
+        if(linha.querySelector(".col-tipo").innerText == 'Cerveja'){
+            document.getElementById("cerveja").checked = true;
             
-        }else{
-            document.getElementById("lan").checked = true;
+        }else if(linha.querySelector(".col-tipo").innerText == 'Drinks'){
+            document.getElementById("drinks").checked = true;
+        }else if(linha.querySelector(".col-tipo").innerText == 'Porções'){
+            document.getElementById("porcoes").checked = true;
+        }else if(linha.querySelector(".col-tipo").innerText == 'Sem Álcool'){
+            document.getElementById("sem-alcool").checked = true;
         }
         // inputTipo.value = linha.querySelector(".col-tipo").innerText;
         btnHidden();

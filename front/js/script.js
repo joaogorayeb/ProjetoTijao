@@ -10,9 +10,13 @@ function getDados(){
 function listarProdutos(produtos){
     produtos.forEach(produto => {
         if(produto.tipo === 1){
-            document.getElementById("mv").appendChild(inserirProduto(produto));
+            document.getElementById("cv").appendChild(inserirProduto(produto));
         }else if(produto.tipo === 2){
-            document.getElementById("lancamentos").appendChild(inserirProduto(produto));
+            document.getElementById("dk").appendChild(inserirProduto(produto));
+        }else if(produto.tipo === 3){
+            document.getElementById("pc").appendChild(inserirProduto(produto));
+        }else if(produto.tipo === 4){
+            document.getElementById("sa").appendChild(inserirProduto(produto));
         }  
     });
 }
@@ -22,9 +26,17 @@ function inserirProduto(p){
 
 
     var img = document.createElement("img");
+    img.classList.add("div-img-produto")
     img.src = "data:img/jpg;base64," + p.img;
     // img.alt = produto.img;
     divProduto.appendChild(img);
+
+    var link = document.createElement("a");
+    link.setAttribute("href", "produto/?id=" + p.id);
+    link.setAttribute("target","_blank");
+    link.appendChild(img);
+    divProduto.appendChild(link);
+
     
     var textoDescricao = document.createElement("produto");
     textoDescricao.classList.add("desc-produto");
@@ -33,18 +45,18 @@ function inserirProduto(p){
 
     var text1 = document.createElement("p");
     text1.classList.add("p-valor");
-    text1.innerHTML = '<s>De: R$' + (p.preco).toFixed(2) + 'por:</s>';
+    text1.innerHTML = 'R$' + (p.preco).toFixed(2);
     divProduto.appendChild(text1);
 
-    var text2 = document.createElement("p");
-    text2.classList.add("p-avista");
-    text2.innerHTML = 'R$' + ((p.preco * 0.5).toFixed(2)) + '<span class="span-a-vista"> à vista</span>' ;
-    divProduto.appendChild(text2);
+    // var text2 = document.createElement("p");
+    // text2.classList.add("p-avista");
+    // text2.innerHTML = 'R$' + ((p.preco * 0.5).toFixed(2)) + '<span class="span-a-vista"> à vista</span>' ;
+    // divProduto.appendChild(text2);
 
-    var text6 = document.createElement("p");
-    text6.classList.add("p-parcelado");
-    text6.innerHTML = '12x de R$' + (p.preco / 12).toFixed(2) + 'sem juros';
-    divProduto.appendChild(text6);
+    // var text6 = document.createElement("p");
+    // text6.classList.add("p-parcelado");
+    // text6.innerHTML = '12x de R$' + (p.preco / 12).toFixed(2) + 'sem juros';
+    // divProduto.appendChild(text6);
 
     return divProduto;
     

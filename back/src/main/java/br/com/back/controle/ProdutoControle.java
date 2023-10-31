@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import br.com.back.dao.ProdutoDAO;
 import br.com.back.modelo.ProdutoModelo;
 
 @RestController
+@CrossOrigin("*")
 public class ProdutoControle {
     @Autowired
     ProdutoDAO produtoDAO;
@@ -51,7 +53,7 @@ public class ProdutoControle {
     @PutMapping
     public ResponseEntity<ProdutoModelo> alterar(@RequestParam ("id") Integer id, @RequestParam ("img") MultipartFile img, @RequestParam ("descricao") String descricao, @RequestParam("preco") Double preco, @RequestParam ("tipo") Integer tipo){
         try {
-            byte[] imgByte;
+            byte[] imgByte = img.getBytes();
             ProdutoModelo modelo = new ProdutoModelo();
             if(img.isEmpty()){
                 imgByte = imagem(id);
